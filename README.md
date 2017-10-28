@@ -16,7 +16,8 @@ Tested the web service and application with JUnit and JMeter.
 
 Files description:
 -----
-WebContent: HTML/CSS/JavaScript code
+WebContent: 
+* HTML/CSS/JavaScript code
 
 src: 
 
