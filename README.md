@@ -1,4 +1,4 @@
-## Web Application Development: Event Search and Recommendation
+# Web Application Development: Geo-based Event Search and Recommendation
 Developed a personalized event search and recommendation application based on geo location and user preferences.
 ## Project Description
 * Front End
