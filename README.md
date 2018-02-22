@@ -14,8 +14,7 @@ and updating user preferences.
   * Improved recommendation precision by designing a content-based recommendation algorithm to match user preferences;
   * Tested the web service and application with JUnit and JMeter.
 
-## Files composition description
------
+## Files composition description 
 * WebContent
   * HTML/CSS/JavaScript 
 * src
