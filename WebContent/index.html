@@ -3,14 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="description" content="Item Recommendation">
-  <meta name="author" content="Your Name">
   <title>Item Recommendation Final</title>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/main.css"> <!-- relationship -->
 </head>
 <body>
-  <header class="top-header">
+  <header class="top-header"> <!-- The <header> element represents a container for introductory content or a set of navigational links. -->
     <nav class="top-nav">
       <a href="#">Home</a>
       <a href="#">Contact</a>
@@ -21,9 +20,9 @@
   
   <div class="container">
     <header>
-      <p>
+      <p>                    <!-- The <p> tag defines a paragraph. Browsers automatically add some space before and after each <p> element. -->
         <span>Item</span>
-        <br /> Recommendation
+        <br /> Recommendation <!-- line break -->
       </p>
     </header>
 
@@ -31,7 +30,7 @@
 
       <aside id="item-nav">
         <div class="nav-icon">
-          <i class="fa fa-sitemap fa-2x"></i>
+	  <i class="fa fa-sitemap fa-2x"></i>
         </div>
         <nav class="main-nav">
           <a href="#" id="nearby-btn" class="main-nav-btn active">
@@ -48,20 +47,20 @@
 
       <ul id="item-list">
          <li class="item">
-	          <img alt="item image" src="https://s3-media3.fl.yelpcdn.com/bphoto/EmBj4qlyQaGd9Q4oXEhEeQ/ms.jpg" />
-	          <div>
-	            <a class="item-name" href="#">{item_name}</a>
-	            <p class="item-category">Vegetarian</p>
-	            <div class="stars">
-	              <i class="fa fa-star"></i>
-	              <i class="fa fa-star"></i>
-	              <i class="fa fa-star"></i>
-	            </div>
-	          </div>
-	          <p class="item-address">699 Calderon Ave<br/>Mountain View<br/> CA</p>
-	          <div class="fav-link">
-	            <i class="fa fa-heart"></i>
-	          </div>
+		  <img alt="item image" src="https://s3-media3.fl.yelpcdn.com/bphoto/EmBj4qlyQaGd9Q4oXEhEeQ/ms.jpg" />
+		  <div>
+		    <a class="item-name" href="#">{item_name}</a>
+		    <p class="item-category">Vegetarian</p>
+		    <div class="stars">
+		      <i class="fa fa-star"></i>
+		      <i class="fa fa-star"></i>
+		      <i class="fa fa-star"></i>
+		    </div>
+		  </div>
+		  <p class="item-address">699 Calderon Ave<br/>Mountain View<br/> CA</p>
+		  <div class="fav-link">
+		    <i class="fa fa-heart"></i>
+		  </div>
         </li>
       </ul>
     </section>
@@ -73,18 +72,18 @@
     <ul>
       <li>
         <p><i class="fa fa-map-o fa-2x"></i></p>
-        <p>LaiOffer office, CA</p>
+        <p>Ann Arbor, MI</p>
       </li>
       <li>
         <p><i class="fa fa-envelope-o fa-2x"></i></p>
-        <p>info@laioffer.com</p>
+        <p>info@gmail.com</p>
       </li>
       <li>
         <p><i class="fa fa-phone fa-2x"></i></p>
-        <p>+1 800 123 456</p>
+        <p>+1 734 263 4710</p>
       </li>
     </ul>
   </footer>
-  <script src="scripts/main.js"></script>
+  <script src="scripts/main.js"></script>  <!--loaded after this html is rendered -->
 </body>
 </html>
