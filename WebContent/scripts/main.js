@@ -11,9 +11,8 @@
 	 * Initialize
 	 */
 	function init() {
-		console.log("1111111111111");
 		// Register event listeners
-		$('nearby-btn').addEventListener('click', loadNearbyItems);
+		$('nearby-btn').addEventListener('click', loadNearbyItems); //jQuery selector
 		$('fav-btn').addEventListener('click', loadFavoriteItems);
 		$('recommend-btn').addEventListener('click', loadRecommendedItems);
 
@@ -21,7 +20,7 @@
 	}
 
 	function initGeoLocation() {
-		if (navigator.geolocation) {
+		if (navigator.geolocation) { //(success, error, [options])
 			navigator.geolocation.getCurrentPosition(onPositionUpdated,
 					onLoadPositionFailed, {
 						maximumAge : 60000
@@ -48,7 +47,8 @@
 		// Get location from http://ipinfo.io/json
 		var url = 'http://ipinfo.io/json'
 		var req = null;
-		ajax('GET', url, req, function(res) {
+		//ajax(method, url, data, callback, errorHandler)
+		ajax('GET', url, req, function(res) { //asynchronous Js and XML
 			var result = JSON.parse(res);
 			if ('loc' in result) {
 				var loc = result.loc.split(',');
@@ -75,7 +75,7 @@
 		var btns = document.getElementsByClassName('main-nav-btn');
 
 		// deactivate all navigation buttons
-		for (var i = 0; i < btns.length; i++) {
+		for (var i = 0; i < btns.length; i++) { // \b matches a word boundary
 			btns[i].className = btns[i].className.replace(/\bactive\b/, '');
 		}
 
@@ -252,33 +252,29 @@
 		showLoadingMessage('Loading recommended items...');
 
 		// make AJAX call
-		ajax(
-				'GET',
-				url + '?' + params,
-				req,
-				// successful callback
-				function(res) {
-					var items = JSON.parse(res);
-					if (!items || items.length === 0) {
-						showWarningMessage('No recommended item. Make sure you have favorites.');
-					} else {
-						listItems(items);
-					}
-				},
-				// failed callback
-				function() {
-					showErrorMessage('Cannot load recommended items.');
-				});
+		ajax('GET',url + '?' + params,req,
+			// successful callback
+			function(res) {
+				var items = JSON.parse(res);
+				if (!items || items.length === 0) {
+					showWarningMessage('No recommended item. Make sure you have favorites.');
+				} else {
+					listItems(items);
+				}
+			},
+			// failed callback
+			function() {
+				showErrorMessage('Cannot load recommended items.');
+			});
 	}
 
 	/**
-	 * API #4 Toggle favorite (or visited) items
+	 * API #4 Toggle favorite (or visited) items API end point [POST]/[DELETE]
+	 * /Titan/history?user_id=1111 {
+	 * user_id: 1111, favourite: [ item_id ] }
 	 * 
 	 * @param item_id -
 	 *            The item business id
-	 * 
-	 * API end point: [POST]/[DELETE] /Dashi/history request json data: {
-	 * user_id: 1111, visited: [a_list_of_business_ids] }
 	 */
 	function changeFavoriteItem(item_id) {
 		// Check whether this item has been visited or not
