@@ -44,17 +44,4 @@ public class RpcHelper {
 			e.printStackTrace();
 		}
 	}
-
-	// Writes a JSONArray to http response.
-	public static void writeJsonArray(HttpServletResponse response, JSONArray array) {
-		try {
-			response.setContentType("application/json");
-			PrintWriter out = response.getWriter();
-			out.print(array);
-			out.flush();
-			out.close();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
 }
