@@ -30,20 +30,20 @@ import external.TicketMasterAPI;
 public class SearchItem extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public SearchItem() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+        /**
+         * @see HttpServlet#HttpServlet()
+         */
+        public SearchItem() {
+            super();
+            // TODO Auto-generated constructor stub
+        }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+        protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-    	String userId = request.getParameter("user_id");
+    		String userId = request.getParameter("user_id");
 		double lat = Double.parseDouble(request.getParameter("lat"));
 		double lon = Double.parseDouble(request.getParameter("lon"));
 		String term = request.getParameter("term"); // Term can be empty or null.
