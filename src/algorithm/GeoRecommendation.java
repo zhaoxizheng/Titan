@@ -35,8 +35,10 @@ public class GeoRecommendation {
       recommendedItems.addAll(items);
     }
 
-    // Student question: why we use list now instead of set?
-    // Answer: because we will have ranking now.
+    //A HashSet does not guarantee any order of its elements. 
+    //If you need this guarantee, consider using a TreeSet to hold your elements.
+    //However since here we just need elements sorted for one occurrence, 
+    //then just temporarily create a filteredItems List and sort it.
     List<Item> filteredItems = new ArrayList<>();  // step 4
     for (Item item : recommendedItems) {
       if (!favoriteItems.contains(item.getItemId())) {
@@ -44,13 +46,10 @@ public class GeoRecommendation {
       }
     }
 
-    // step 5. perform ranking of these items based on distance.
+    // step 5. perform ranking of these items based on distance from the user.
     Collections.sort(filteredItems, new Comparator<Item>() {
       @Override
       public int compare(Item item1, Item item2) {
-        // Student question: can we make this ranking even better with
-        // more dimensions?
-        // What other feathers can be used here?
         double distance1 = getDistance(item1.getLatitude(), item1.getLongitude(), lat, lon);
         double distance2 = getDistance(item2.getLatitude(), item2.getLongitude(), lat, lon);
         // return the increasing order of distance.
