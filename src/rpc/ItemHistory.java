@@ -27,13 +27,13 @@ import entity.Item;
 public class ItemHistory extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ItemHistory() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+        /**
+         * @see HttpServlet#HttpServlet()
+         */
+        public ItemHistory() {
+            	super();
+            	// TODO Auto-generated constructor stub
+        }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -62,7 +62,7 @@ public class ItemHistory extends HttpServlet {
 	protected void doPost(HttpServletRequest request,
 		HttpServletResponse response) throws ServletException, IOException {
 		try {
-            JSONObject input = RpcHelper.readJsonObject(request);
+            		JSONObject input = RpcHelper.readJsonObject(request);
 			String userId = input.getString("user_id");
 			JSONArray array = (JSONArray) input.get("favorite");
 		
@@ -84,24 +84,24 @@ public class ItemHistory extends HttpServlet {
 	
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
-			try {
-				JSONObject input = RpcHelper.readJsonObject(request);
-				String userId = input.getString("user_id");
-				JSONArray array = (JSONArray) input.get("favorite");
-	
-				List<String> histories = new ArrayList<>();
-				for (int i = 0; i < array.length(); i++) {
-					String itemId = (String) array.get(i);
-					histories.add(itemId);
-				}
-	
-				DBConnection conn = DBConnectionFactory.getDBConnection();
-				conn.unsetFavoriteItems(userId, histories);
-	
-				// Return save result to client
-				RpcHelper.writeJsonObject(response, new JSONObject().put("result", "SUCCESS"));
-			} catch (JSONException e) {
-				e.printStackTrace();
+		try {
+			JSONObject input = RpcHelper.readJsonObject(request);
+			String userId = input.getString("user_id");
+			JSONArray array = (JSONArray) input.get("favorite");
+
+			List<String> histories = new ArrayList<>();
+			for (int i = 0; i < array.length(); i++) {
+				String itemId = (String) array.get(i);
+				histories.add(itemId);
 			}
+
+			DBConnection conn = DBConnectionFactory.getDBConnection();
+			conn.unsetFavoriteItems(userId, histories);
+
+			// Return save result to client
+			RpcHelper.writeJsonObject(response, new JSONObject().put("result", "SUCCESS"));
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
 	}
 }
