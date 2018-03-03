@@ -112,9 +112,8 @@ public class MySQLConnection implements DBConnection {
 				ResultSet rs = statement.executeQuery();
 				ItemBuilder builder = new ItemBuilder();
 
-				// Because itemId is unique and given one item id there should
-				// have
-				// only one result returned.
+				// Because itemId is unique and given one item id there should 
+				// have only one result returned.
 				if (rs.next()) {
 					builder.setItemId(rs.getString("item_id"));
 					builder.setName(rs.getString("name"));
@@ -134,7 +133,7 @@ public class MySQLConnection implements DBConnection {
 				}
 
 				// Join categories information into builder.
-				// But why we do not join in sql? Because it'll be difficult
+				// We do not use join because it'll be difficult
 				// to set it in builder.
 				sql = "SELECT * from categories WHERE item_id = ?";
 				statement = conn.prepareStatement(sql);
@@ -176,13 +175,13 @@ public class MySQLConnection implements DBConnection {
 	@Override
 	public List<Item> searchItems(String userId, double lat, double lon, String term) {
 		// Connect to external API
-				ExternalAPI api = ExternalAPIFactory.getExternalAPI(); // moved here
-				List<Item> items = api.search(lat, lon, term);
-				for (Item item : items) {
-					// Save the item into our own db.
-					saveItem(item);
-				}
-				return items;
+		ExternalAPI api = ExternalAPIFactory.getExternalAPI(); 
+		List<Item> items = api.search(lat, lon, term);
+		for (Item item : items) {
+			// Save the item into db.
+			saveItem(item);
+		}
+		return items;
 	}
 
 	@Override
@@ -191,7 +190,6 @@ public class MySQLConnection implements DBConnection {
 			return;
 		}
 		try {
-			// First, insert into items table
 			String sql = "INSERT IGNORE INTO items VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
 			PreparedStatement statement = conn.prepareStatement(sql);
