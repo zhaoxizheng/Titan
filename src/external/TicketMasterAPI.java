@@ -34,18 +34,16 @@ public class TicketMasterAPI implements ExternalAPI {
 		}
 		// Encode term in url since it may contain special characters
 		term = urlEncodeHelper(term);
-		// Make your url query part like: "apikey=12345&geoPoint=abcd&keyword=music"
+		// Make url query part like: "apikey=12345&geoPoint=abcd&keyword=music"
 		String query = String.format("apikey=%s&geoPoint=%s&keyword=%s", API_KEY, geoHash, term);
 		try {
-			// Create a HTTP connection between your Java application and TicketMaster based
-			// on url
+			// Create a HTTP connection between your Java application and TicketMaster based on url.
 			HttpURLConnection connection = (HttpURLConnection) new URL(url + "?" + query).openConnection();
 			// Set requrest method to GET
 			connection.setRequestMethod("GET");
 
-			// Send request to TicketMaster and get response, response code could be
-			// returned directly
-			// response body is saved in InputStream of connection.
+			// Send request to TicketMaster and get response, response code could be returned directly.
+			// Response body is saved in InputStream of connection.
 			int responseCode = connection.getResponseCode();
 			System.out.println("\nSending 'GET' request to URL : " + url + "?" + query);
 			System.out.println("Response Code : " + responseCode);
@@ -73,23 +71,11 @@ public class TicketMasterAPI implements ExternalAPI {
 
 	private String urlEncodeHelper(String term) {
 		try {
-			term = java.net.URLEncoder.encode(term, "UTF-8");
+			term = java.net.URLEncoder.encode(term, "UTF-8");//Translates a string into application/x-www-form-urlencoded format using a specific encoding scheme.
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return term;
-	}
-	
-	private void queryAPI(double lat, double lon) {
-		List<Item> itemList = search(lat, lon, null);
-		try {
-			for (Item item : itemList) {
-				JSONObject jsonObject = item.toJSONObject();
-				System.out.println(jsonObject);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
 	}
 	
 	// Convert JSONArray to a list of item objects.
