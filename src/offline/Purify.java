@@ -32,7 +32,7 @@ public class Purify {
 			while ((line = bufferedReader.readLine()) != null) {
 				// A sample input from tomcat server :
 				// 73.223.210.212 - - [19/Aug/2017:22:00:24 +0000] "GET /Titan/history?user_id=1111 HTTP/1.1" 200 11410
-        List<String> values = Arrays.asList(line.split(" "));
+        			List<String> values = Arrays.asList(line.split(" "));
 
 				String ip = values.size() > 0 ? values.get(0) : null;
 				String timestamp = values.size() > 3 ? values.get(3) : null;
@@ -44,12 +44,12 @@ public class Purify {
 				// .+? is reluctant and consumes as few characters as it can.
 				Pattern pattern = Pattern.compile("\\[(.+?):(.+)");
 				Matcher matcher = pattern.matcher(timestamp);
-			  matcher.find();
+			  	matcher.find();
 
 				db.getCollection("logs")
-						.insertOne(new Document().append("ip", ip).append("date", matcher.group(1))
-								.append("time", matcher.group(2)).append("method", method.substring(1))
-								.append("url", url).append("status", status));
+					.insertOne(new Document().append("ip", ip).append("date", matcher.group(1))
+						.append("time", matcher.group(2)).append("method", method.substring(1))
+						.append("url", url).append("status", status));
 			}
 			System.out.println("Import Done!");
 			bufferedReader.close();
