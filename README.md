@@ -19,4 +19,4 @@ and setting/unsetting user preferences.
   * HTML/CSS/JavaScript 
 * src
   * api	: Java 
-  * db : MySQL, MongoDB
+  * db : MySQL/MongoDB
