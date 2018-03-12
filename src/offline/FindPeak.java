@@ -100,9 +100,9 @@ public class FindPeak{
 		return buckets;
 	}
 
-  // Use LocalTime.isAfter/isBefore to compare to objects
-  // TimeBucket: [00:00, 00:15, 00:30, ..., 23:30, 23:45]
-  // currentTime: 10:10
+  	// Use LocalTime.isAfter/isBefore to compare to objects
+  	// TimeBucket: [00:00, 00:15, 00:30, ..., 23:30, 23:45]
+	// currentTime: 10:10
 	private static String findBucket(String currentTime) {
 		LocalTime curr = LocalTime.parse(currentTime);
 		int left = 0, right = buckets.size() - 1;
