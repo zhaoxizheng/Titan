@@ -8,15 +8,15 @@ and setting/unsetting user preferences.
 
 * Back End
 
-  * Built web service APIs by using Java servlet and RESTFul to handle HTTP requests and responses;
-  * Designed MySQL and MongoDB database respectively to store user profiles and event info fetched from TicketMaster API;
-  * Improved recommendation precision by designing a content-based recommendation algorithm to match user preferences;
-  * Utilized MongoDB MapReduce to analyze a fake Tomcat Server log analysis to find user visit time pattern.
+  * Built web service APIs by using Java servlet and RESTFul to handle HTTP requests and responses.
+  * Designed MySQL and MongoDB database respectively to store user profiles and event info fetched from TicketMaster API.
+  * Improved recommendation precision by designing a content-based recommendation algorithm to match user preferences.
+  * Utilized MongoDB MapReduce to analyze a fake Tomcat Server log analysis to find user visit time pattern.
   * Tested the web service and application with JUnit and JMeter.
 
 ## Structure
 * WebContent
   * HTML/CSS/JavaScript 
 * src
-  * api	: Java 
-  * db : MySQL/MongoDB
+  * api	: Java
+  * db : MySQL/MongoDB
