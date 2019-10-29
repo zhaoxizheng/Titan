@@ -12,8 +12,7 @@ public class DBConnectionFactory {
 		case "mysql":
 			return new MySQLConnection();
 		case "mongodb":
-			return null;
-		// You may try other dbs and add them here.
+			 return new MongoDBConnection();
 		default:
 			throw new IllegalArgumentException("Invalid db " + db);
 		}
