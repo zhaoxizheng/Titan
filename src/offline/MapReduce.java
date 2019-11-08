@@ -28,7 +28,7 @@ public class TimeCount {
              Matcher matcher = pattern.matcher(timestamp);
              matcher.find();
 
-             output.collect(new Text(matcher.group(2)).substring(0, 5), 1);
+             output.collect(new Text(matcher.group(2)).substring(0, 5), one);
          }
      }
 
